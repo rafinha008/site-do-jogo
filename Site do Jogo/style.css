@@ -1,0 +1,500 @@
+/* cores do site (trocando aqui muda o site inteiro) */
+:root {
+    --cor-fundo: #f3f6fd;
+    --cor-texto: #1b2a4a;
+    --cor-nav: #1b2a4a;
+    --cor-nav-hover: #dbe7fb;
+    --cor-nav-hover-texto: #1b2a4a;
+    --cor-card: #2a6fdb;
+    --cor-destaque: #6a4fc8;
+    --cor-ferramenta-fundo: #dbe7fb;
+    --cor-ferramenta-nome: #3b4fc4;
+    /* roxo da logo 2, para o verde da logo 3 use #0f7d5c */
+    --cor-brilho: rgba(42, 111, 219, 0.5);
+    --cor-brilho-interno: rgba(255, 255, 255, 0.25);
+}
+
+/* tema escuro (so troca o valor das variaveis) */
+body.dark-theme {
+    --cor-fundo: #0b0f1e;
+    --cor-texto: #f2f4fa;
+    --cor-nav: #151b30;
+    --cor-nav-hover: #2a3558;
+    --cor-nav-hover-texto: #ffffff;
+    --cor-card: #1f4fbf;
+    --cor-destaque: #2f6fed;
+    --cor-ferramenta-fundo: #1b2340;
+    --cor-ferramenta-nome: #8fb0ff;
+    --cor-brilho: rgba(47, 111, 237, 0.55);
+    --cor-brilho-interno: rgba(255, 255, 255, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+    /* os titulos nao ficam escondidos atras da navbar fixa */
+    scroll-padding-top: 70px;
+}
+
+.body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+/* secoes */
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section h2 {
+    text-align: center;
+}
+
+section p {
+    line-height: 1.6;
+}
+
+
+/* navbar */
+/* o sticky fica no nav e nao na .navbar, senao ela nao tem espaço pra grudar no topo */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+
+.navbar {
+    background-color: var(--cor-nav);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: background-color 0.3s;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: var(--cor-nav-hover);
+    color: var(--cor-nav-hover-texto);
+}
+
+.navbar .logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* botoes de idioma */
+.lang {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    gap: 6px;
+}
+
+.lang button {
+    padding: 7px 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.lang button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* parte do video */
+.container-video {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0 12px;
+}
+
+.video {
+    width: 560px;
+    max-width: 100%;
+    height: auto;
+    /* mantem o formato 16:9 quando a largura diminui */
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+
+/* carosel para criadores */
+/* as setas ficam dos lados do carrossel */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-wrapper button {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.carousel-wrapper button:hover {
+    filter: brightness(1.3);
+}
+
+.carousel {
+    flex: 0 1 700px;
+    min-width: 0;
+    overflow: hidden;
+    padding: 30px 10px;
+    /* o dedo rola a pagina na vertical e o JS cuida de arrastar na horizontal */
+    touch-action: pan-y;
+}
+
+/* todos os cards ficam empilhados na mesma celula,
+   o JS so troca a classe e o css posiciona cada um */
+.carousel-track {
+    display: grid;
+    justify-items: center;
+}
+
+/* card dos criadores */
+.card {
+    grid-area: 1 / 1;
+    /* encolhe se a tela for muito estreita */
+    width: min(200px, calc(100% - 20px));
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: var(--cor-card);
+    color: white;
+    box-shadow: 0px 4px 10px var(--cor-brilho), 0px 0px 10px 8px var(--cor-brilho),
+        5px 5px 10px var(--cor-brilho-interno) inset, -5px -5px 10px var(--cor-brilho-interno) inset;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* posicoes dos cards (o JS troca essas classes) */
+.card.centro {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.card.esquerda {
+    transform: translateX(-230px) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.card.direita {
+    transform: translateX(230px) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* os outros cards ficam invisiveis esperando a vez */
+.card.oculto {
+    transform: scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* imagem do card */
+.img-card {
+    width: 150px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* botao pro github */
+.btn-github {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #1b2a4a;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: #dbe7fb;
+}
+
+/* ferramentas usadas */
+/* auto-fit: os cards se ajustam sozinhos, 4 por linha no pc e menos em telas menores */
+.ferramentas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 20px;
+}
+
+.ferramenta {
+    background-color: var(--cor-ferramenta-fundo);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    /* a transicao deixa a subida e a sombra suaves em vez de instantaneas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ao passar o mouse o card sobe 8px e a sombra aumenta */
+.ferramenta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.ferramenta img {
+    height: 64px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.ferramenta h3 {
+    margin: 12px 0 6px;
+    color: var(--cor-ferramenta-nome);
+}
+
+.ferramenta p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* botao para trocar de tema */
+#troca-tema {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    background-color: var(--cor-destaque);
+    color: white;
+    border: 1px solid var(--cor-destaque);
+    border-radius: 25%;
+    font-size: 24px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+/* rodape */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 20px;
+    background-color: var(--cor-nav);
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: white;
+}
+
+
+/* galeria */
+.titulo-pagina {
+    text-align: center;
+    margin: 40px 0 0;
+}
+
+/* auto-fill: a quantidade de colunas se ajusta sozinha ao tamanho da tela */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.galeria-item {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-ferramenta-fundo);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* espaço reservado (tira a classe "vazio" quando colocar a imagem) */
+.galeria-item.vazio {
+    border: 2px dashed var(--cor-ferramenta-nome);
+    color: var(--cor-ferramenta-nome);
+    font-weight: 600;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* sprites sao pixel art, entao nao pode borrar quando aumenta */
+#sprites .galeria-item img {
+    image-rendering: pixelated;
+}
+
+/* marca a pagina em que voce esta na navbar */
+.navbar a.ativo {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* creditos e botao de download */
+#creditos {
+    text-align: center;
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 14px 32px;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    /* a transicao deixa a subida do botao suave */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.btn-download:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.2);
+}
+
+
+/* responsivo (tem que ficar no final do arquivo) */
+
+/* tablet e janela pequena: nao cabem 3 cards, so o do centro aparece */
+@media (max-width: 880px) {
+
+    .card.esquerda,
+    .card.direita {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* celular grande: a navbar quebra em duas linhas
+   (logo e idiomas em cima, links embaixo) */
+@media (max-width: 720px) {
+    html {
+        scroll-padding-top: 110px;
+    }
+
+    .navbar .logo {
+        order: 1;
+        font-size: 18px;
+    }
+
+    .lang {
+        order: 2;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar a {
+        padding: 12px 12px;
+    }
+}
+
+/* celular pequeno */
+@media (max-width: 480px) {
+    section {
+        margin: 28px auto;
+        padding: 0 14px;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar a {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .carousel-wrapper {
+        gap: 4px;
+    }
+
+    .carousel-wrapper button {
+        padding: 8px 9px;
+    }
+
+    #troca-tema {
+        bottom: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
