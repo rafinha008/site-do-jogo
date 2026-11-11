@@ -117,16 +117,37 @@ nav {
 }
 
 .lang button {
-    padding: 7px 10px;
+    padding: 4px;
+    background: none;
+    border: 2px solid transparent;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: none;
     cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .lang button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* idioma atual: bandeira com brilho total e borda branca */
+.lang button.ativo {
+    opacity: 1;
+    border-color: white;
+}
+
+.lang button img {
+    display: block;
+    width: 32px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+/* botao do menu tres linhas (escondido no computador) */
+.menu-btn {
+    display: none;
 }
 
 
@@ -139,12 +160,16 @@ nav {
 }
 
 .video {
-    width: 560px;
+    width: 320px;
     max-width: 100%;
     height: auto;
-    /* mantem o formato 16:9 quando a largura diminui */
-    aspect-ratio: 16 / 9;
+    /* formato vertical 9:16, igual a um video gravado de celular */
+    aspect-ratio: 9 / 16;
     border: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+    object-fit: contain;
 }
 
 
@@ -348,46 +373,124 @@ footer a {
     margin: 40px 0 0;
 }
 
-/* auto-fill: a quantidade de colunas se ajusta sozinha ao tamanho da tela */
+/* galeria: 3 imagens por linha */
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.galeria-item {
+.galeria-grid img {
+    width: 100%;
     aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--cor-ferramenta-fundo);
+    object-fit: cover;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.galeria-item:hover {
+.galeria-grid img:hover {
     transform: translateY(-6px);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* espaço reservado (tira a classe "vazio" quando colocar a imagem) */
-.galeria-item.vazio {
-    border: 2px dashed var(--cor-ferramenta-nome);
-    color: var(--cor-ferramenta-nome);
-    font-weight: 600;
+/* cursor de lupa nas imagens que ampliam */
+.zoom {
+    cursor: zoom-in;
 }
 
-.galeria-item img {
+/* imagem ampliada com quadrado de descricao ao lado */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.lightbox.aberto {
+    display: flex;
+}
+
+.lightbox-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 1200px;
+    max-height: 100%;
 }
 
-/* sprites sao pixel art, entao nao pode borrar quando aumenta */
-#sprites .galeria-item img {
-    image-rendering: pixelated;
+.lightbox-conteudo img {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-info {
+    flex: 0 0 300px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 24px;
+    background-color: var(--cor-nav);
+    border: 3px solid var(--cor-destaque);
+    border-radius: 12px;
+    color: white;
+}
+
+.lightbox-info h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+.lightbox-info p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #dbe7fb;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 44px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* celular: a descricao desce pra baixo da imagem */
+@media (max-width: 800px) {
+    .lightbox {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 60px 15px 20px;
+    }
+
+    .lightbox-conteudo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lightbox-conteudo img {
+        max-height: 60vh;
+    }
+
+    .lightbox-info {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: none;
+        box-sizing: border-box;
+    }
 }
 
 /* marca a pagina em que voce esta na navbar */
@@ -421,6 +524,40 @@ footer a {
     filter: brightness(1.2);
 }
 
+/* os dois botoes dos creditos lado a lado (empilham no celular) */
+.botoes-creditos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.botoes-creditos .btn-download {
+    margin-top: 0;
+}
+
+
+/* botao de documentacao: so a borda, pra nao competir com o de download */
+.btn-doc {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: var(--cor-texto);
+    border: 2px solid var(--cor-destaque);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-doc:hover {
+    transform: translateY(-4px);
+    background-color: var(--cor-destaque);
+    color: white;
+}
+
 
 /* responsivo (tem que ficar no final do arquivo) */
 
@@ -434,30 +571,50 @@ footer a {
     }
 }
 
-/* celular grande: a navbar quebra em duas linhas
-   (logo e idiomas em cima, links embaixo) */
+/* celular grande: o menu vira tres linhas e os links ficam escondidos ate clicar no botao
+   (logo, idiomas e botao em cima, links embaixo quando abre) */
 @media (max-width: 720px) {
-    html {
-        scroll-padding-top: 110px;
-    }
-
     .navbar .logo {
         order: 1;
         font-size: 18px;
     }
 
+    /* margin-left: auto empurra idiomas e botao pro canto direito */
     .lang {
         order: 2;
+        margin-left: auto;
     }
 
-    .nav-links {
+    .menu-btn {
+        display: block;
         order: 3;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        line-height: 1;
+        padding: 8px 14px;
+        cursor: pointer;
+    }
+
+    /* links escondidos ate clicar no botao */
+    .nav-links {
+        order: 4;
         width: 100%;
-        justify-content: center;
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-links.aberto {
+        display: flex;
     }
 
     .navbar a {
         padding: 12px 12px;
+    }
+
+    .nav-links a {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
 

@@ -157,6 +157,10 @@ const traducoes = {
         "desc_ferramenta2": "Descrição da Ferramenta 2.",
         "desc_ferramenta3": "Descrição da Ferramenta 3.",
         "desc_ferramenta4": "Software usado para criar música.",
+        "nav_documentacao": "Documentação",
+        "sb1_titulo": "Storyboard 1",
+        "sb1_desc": "Storyboard da primeira fase",
+        "sb2_titulo": "Storyboard 2",
     },
 
     "en": {
@@ -186,6 +190,9 @@ const traducoes = {
         "desc_ferramenta2": "Description of Tool 2.",
         "desc_ferramenta3": "Description of Tool 3.",
         "desc_ferramenta4": "Software used to create music.",
+        "nav_documentacao": "Documentation",
+        "sb1_titulo": "Storyboard 1",
+        "sb1_desc": "Description of the first storyboard scene.",
     },
 
     "es": {
@@ -215,6 +222,9 @@ const traducoes = {
         "desc_ferramenta2": "Descripción de la Herramienta 2.",
         "desc_ferramenta3": "Descripción de la Herramienta 3.",
         "desc_ferramenta4": "Software usado para crear música.",
+        "nav_documentacao": "Documentación",
+        "sb1_titulo": "Storyboard 1",
+        "sb1_desc": "Descripción de la primera escena del storyboard.",
     }
 };
 
@@ -228,6 +238,11 @@ function trocarIdioma(idioma) {
         }
     });
 
+    // marca o botao do idioma atual
+    document.querySelectorAll(".lang button").forEach(function (b) {
+        b.classList.toggle("ativo", b.dataset.lang === idioma);
+    });
+
     // avisa o navegador qual e o idioma da pagina
     document.documentElement.lang = idioma === "pt" ? "pt-BR" : idioma;
     localStorage.setItem("idioma", idioma);
@@ -239,9 +254,105 @@ document.querySelectorAll(".lang button").forEach(function (botaoIdioma) {
     });
 });
 
-// quando abrir a pagina pega a lingua guardada (ou português na primeira visita)
+// quando abrir a pagina pega a lingua guardada (ou portugues na primeira visita)
 let salvo = localStorage.getItem("idioma");
 if (!traducoes[salvo]) {
     salvo = "pt";
 }
 trocarIdioma(salvo);
+
+// imagem ampliada com titulo e descricao ao lado
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxTitulo = document.getElementById("lightbox-titulo");
+const lightboxTexto = document.getElementById("lightbox-texto");
+const lightboxInfo = document.querySelector(".lightbox-info");
+
+// pega o texto no idioma atual; se a chave nao existir nas traducoes,
+// mostra o proprio texto que foi escrito no HTML
+function textoNoIdioma(chave) {
+    if (!chave) {
+        return "";
+    }
+    const idioma = localStorage.getItem("idioma") || "pt";
+    const tabela = traducoes[idioma] || {};
+    return tabela[chave] !== undefined ? tabela[chave] : chave;
+}
+
+function abrirLightbox(img) {
+    // se a imagem nao tiver titulo, usa o alt dela
+    const titulo = textoNoIdioma(img.dataset.titulo) || img.alt;
+    const texto = textoNoIdioma(img.dataset.descricao);
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxTitulo.textContent = titulo;
+    lightboxTexto.textContent = texto;
+    // se nao tem nada pra mostrar, esconde o quadradinho
+    lightboxInfo.style.display = (titulo || texto) ? "" : "none";
+
+    lightbox.classList.add("aberto");
+    // trava a rolagem da pagina enquanto a imagem esta aberta
+    document.body.style.overflow = "hidden";
+}
+
+function fecharLightbox() {
+    lightbox.classList.remove("aberto");
+    document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".zoom").forEach(function (img) {
+    img.addEventListener("click", function () {
+        abrirLightbox(img);
+    });
+});
+
+// fecha clicando fora (o X tambem), mas nao ao clicar na imagem ou no quadradinho
+lightbox.addEventListener("click", function (evento) {
+    if (!evento.target.closest("#lightbox-img, .lightbox-info")) {
+        fecharLightbox();
+    }
+});
+
+// fecha com a tecla Esc
+document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape") {
+        fecharLightbox();
+    }
+});
+
+// menu tres linhas (so aparece no celular)
+const menuBtn = document.getElementById("menu-btn");
+const menuLinks = document.getElementById("menu-links");
+
+function fecharMenu() {
+    menuLinks.classList.remove("aberto");
+    menuBtn.textContent = "\u2630";
+    menuBtn.setAttribute("aria-expanded", "false");
+}
+
+menuBtn.addEventListener("click", function () {
+    // toggle devolve true se a classe foi adicionada (menu abriu)
+    const aberto = menuLinks.classList.toggle("aberto");
+    menuBtn.textContent = aberto ? "\u2715" : "\u2630";
+    menuBtn.setAttribute("aria-expanded", aberto ? "true" : "false");
+});
+
+// fecha o menu depois de clicar em um link
+menuLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", fecharMenu);
+});
+
+// se a janela voltar a ficar grande, nao deixa o menu "preso" aberto
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 720) {
+        fecharMenu();
+    }
+});
+
+// fecha com a tecla Esc
+document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape") {
+        fecharMenu();
+    }
+});

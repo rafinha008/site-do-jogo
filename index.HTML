@@ -17,37 +17,51 @@
                 <a href="#" data-i18n="nav_inicio">Início</a>
                 <a href="#sobre" data-i18n="nav_sobre" class="">Sobre</a>
                 <a href="#criadores" data-i18n="nav_criadores" class="">Criadores</a>
-                <a href="tutorial.html" data-i18n="nav_tutorial" class="">Tutorial</a>
-                <a href="galeria.html" data-i18n="nav_galeria" class="">Galeria</a>
+                <a href="#tutorial" data-i18n="nav_tutorial">Tutorial</a>
+                <a href="#galeria" data-i18n="nav_galeria">Galeria</a>
+                <div class="nav-links" id="menu-links"></div>
             </div>
+
             <div class="lang">
-                <button data-lang="pt">PT</button>
-                <button data-lang="en">EN</button>
-                <button data-lang="es">ES</button>
+                <button data-lang="pt" aria-label="Português" title="Português">
+                    <img src="img/br.svg" alt="Bandeira do Brasil">
+                </button>
+                <button data-lang="en" aria-label="English" title="English">
+                    <img src="img/us.svg" alt="Flag of the United States">
+                </button>
+                <button data-lang="es" aria-label="Español" title="Español">
+                    <img src="img/es.svg" alt="Bandera de España">
+                </button>
             </div>
+
+            <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false"
+                aria-controls="menu-links">&#9776;</button>
+
         </div>
     </nav>
+
+    <!-- sobre o jogo -->
+    <section id="sobre">
+        <h2 data-i18n="titulo_sobre">Sobre o Jogo</h2>
+        <p data-i18n="desc_sobre">
+            A história do jogo envolve um jovem que busca criar um lanhouse. ele começa pequeno sem muitos recursos
+            ou maquinas,
+            mas com o tempo ele vai crescendo e conseguindo mais clientes, maquinas e recursos. O objetivo do jogo é
+            conseguir
+            criar a maior lanhouse do mundo, com o maior numero de clientes e maquinas.
+            O jogador deve gerenciar o tempo, dinheiro e recursos para conseguir atingir esse objetivo.
+            O jogo é divertido e desafiador, e exige que o jogador tome decisões estratégicas para conseguir crescer
+            e se tornar o melhor dono de lanhouse do mundo.
+        </p>
+    </section>
 
     <!-- parte do video -->
     <main>
         <div class="container-video">
-            <iframe class="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            <video class="video" controls playsinline preload="metadata" src="video/gameplay.mp4"></video>
         </div>
 
-        <!-- sobre o jogo -->
-        <section id="sobre">
-            <h2 data-i18n="titulo_sobre">Sobre o Jogo</h2>
-            <p data-i18n="desc_sobre">
-                A história do jogo envolve um jovem que busca criar um lanhouse. ele começa pequeno sem muitos recursos
-                ou maquinas,
-                mas com o tempo ele vai crescendo e conseguindo mais clientes, maquinas e recursos. O objetivo do jogo é
-                conseguir
-                criar a maior lanhouse do mundo, com o maior numero de clientes e maquinas.
-                O jogador deve gerenciar o tempo, dinheiro e recursos para conseguir atingir esse objetivo.
-                O jogo é divertido e desafiador, e exige que o jogador tome decisões estratégicas para conseguir crescer
-                e se tornar o melhor dono de lanhouse do mundo.
-            </p>
-        </section>
+
 
         <!-- ferramentas usadas -->
         <section id="ferramentas">
@@ -55,7 +69,7 @@
             <div class="ferramentas-grid">
 
                 <div class="ferramenta">
-                    <img alt="Game Maker" src="img/game maker.webp">
+                    <img alt="Game Maker" src="img/game_maker.webp">
                     <h3 data-i18n="nome_ferramenta1">Game Maker</h3>
                     <p data-i18n="desc_ferramenta1">Engine usada para desenvolver o jogo.</p>
                 </div>
@@ -80,6 +94,44 @@
 
             </div>
 
+        </section>
+
+        <!-- galeria -->
+        <section id="galeria">
+            <h2 data-i18n="titulo_galeria">Galeria</h2>
+
+            <!-- storyboard -->
+            <h3 class="galeria-titulo" id="storyboard" data-i18n="galeria_storyboard">Storyboard</h3>
+            <div class="galeria-grid">
+                <img class="zoom" src="img/storyboard_1.png" alt="Storyboard 1" data-titulo="sb1_titulo"
+                    data-descricao="sb1_desc">
+                <img class="zoom" src="img/storyboard_2.png" alt="Storyboard 2" data-titulo="sb2_titulo"
+                    data-descricao="sb2_desc">
+                <img class="zoom" src="img/storyboard_3.png" alt="Storyboard 3" data-titulo="sb3_titulo"
+                    data-descricao="sb3_desc">
+            </div>
+
+            <!-- cenarios -->
+            <h3 class="galeria-titulo" id="cenarios" data-i18n="galeria_cenarios">Cenários</h3>
+            <div class="galeria-grid">
+                <img class="zoom" src="img/cenarios/1.png" alt="Cenário 1">
+                <img class="zoom" src="img/cenarios/2.png" alt="Cenário 2">
+                <img class="zoom" src="img/cenarios/3.png" alt="Cenário 3">
+                <img class="zoom" src="img/cenarios/4.png" alt="Cenário 4">
+                <img class="zoom" src="img/cenarios/5.png" alt="Cenário 5">
+                <img class="zoom" src="img/cenarios/6.png" alt="Cenário 6">
+            </div>
+
+            <!-- codigo -->
+            <h3 class="galeria-titulo" id="codigo" data-i18n="galeria_codigo">Código</h3>
+            <div class="galeria-grid galeria-codigo">
+                <img class="zoom" src="img/codigo/1.png" alt="Código 1">
+                <img class="zoom" src="img/codigo/2.png" alt="Código 2">
+                <img class="zoom" src="img/codigo/3.png" alt="Código 3">
+                <img class="zoom" src="img/codigo/4.png" alt="Código 4">
+                <img class="zoom" src="img/codigo/5.png" alt="Código 5">
+                <img class="zoom" src="img/codigo/6.png" alt="Código 6">
+            </div>
         </section>
 
         <!-- seçao dos criadores -->
@@ -146,7 +198,12 @@
         <section id="creditos">
             <h2 data-i18n="titulo_creditos">Créditos</h2>
             <p data-i18n="desc_creditos">Obrigado por jogar ByteRise!</p>
-            <a class="btn-download" href="downloads/ByteRise.zip" download data-i18n="btn_download">Baixar o jogo</a>
+            <div class="botoes-creditos">
+                <a class="btn-download" href="downloads/ByteRise.zip" download data-i18n="btn_download">Baixar o
+                    jogo</a>
+                <a class="btn-doc" href="docs/Informações_sobre_o_ByteRise.pdf" target="_blank" rel="noopener"
+                    data-i18n="nav_documentacao">Documentação</a>
+            </div>
         </section>
 
     </main>
@@ -157,7 +214,21 @@
 
     <!-- troca de tema -->
     <button id="troca-tema" aria-label="Trocar tema">&#9790;</button>
+
+    <!-- imagem ampliada -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-fechar" aria-label="Fechar">&times;</button>
+        <div class="lightbox-conteudo">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightbox-titulo"></h3>
+                <p id="lightbox-texto"></p>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
