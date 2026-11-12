@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="img/B_ByteRise.png">
     <title>ByteRise</title>
 </head>
 
@@ -13,13 +13,14 @@
     <nav>
         <div class="navbar">
             <a href="#" class="logo">ByteRise</a>
-            <div class="nav-links">
+
+            <div class="nav-links" id="menu-links">
                 <a href="#" data-i18n="nav_inicio">Início</a>
-                <a href="#sobre" data-i18n="nav_sobre" class="">Sobre</a>
-                <a href="#criadores" data-i18n="nav_criadores" class="">Criadores</a>
-                <a href="#tutorial" data-i18n="nav_tutorial">Tutorial</a>
-                <a href="#galeria" data-i18n="nav_galeria">Galeria</a>
-                <div class="nav-links" id="menu-links"></div>
+                <a href="#sobre" data-i18n="nav_sobre">Sobre</a>
+                <a href="#storyboard" data-i18n="galeria_storyboard">Storyboard</a>
+                <a href="#sprites" data-i18n="galeria_sprites">Sprites</a>
+                <a href="#codigo" data-i18n="galeria_codigo">Código</a>
+                <a href="#criadores" data-i18n="nav_criadores">Criadores</a>
             </div>
 
             <div class="lang">
@@ -36,157 +37,176 @@
 
             <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false"
                 aria-controls="menu-links">&#9776;</button>
-
         </div>
     </nav>
 
-    <!-- sobre o jogo -->
     <section id="sobre">
         <h2 data-i18n="titulo_sobre">Sobre o Jogo</h2>
-        <p data-i18n="desc_sobre">
-            A história do jogo envolve um jovem que busca criar um lanhouse. ele começa pequeno sem muitos recursos
-            ou maquinas,
-            mas com o tempo ele vai crescendo e conseguindo mais clientes, maquinas e recursos. O objetivo do jogo é
-            conseguir
-            criar a maior lanhouse do mundo, com o maior numero de clientes e maquinas.
-            O jogador deve gerenciar o tempo, dinheiro e recursos para conseguir atingir esse objetivo.
-            O jogo é divertido e desafiador, e exige que o jogador tome decisões estratégicas para conseguir crescer
-            e se tornar o melhor dono de lanhouse do mundo.
-        </p>
+        <div class="galeria-bloco">
+            <p data-i18n="desc_sobre">
+                ByteRise é um jogo clicker para celular que conta a história de um jovem com um sonho: construir a maior
+                lanhouse do mundo. Tudo começa de forma humilde, com poucas máquinas e quase nenhum dinheiro. A cada
+                toque na tela, o jogador ganha recursos para investir em novos computadores, atrair mais clientes e
+                fazer o negócio crescer. Para chegar ao topo, é preciso administrar bem o tempo, o dinheiro e os
+                recursos, tomando decisões estratégicas pelo caminho. Com visual em pixel art, cutscenes e uma trilha
+                sonora criada para o jogo, ByteRise transforma a jornada de um pequeno comércio em uma aventura
+                divertida e desafiadora.
+            </p>
+        </div>
     </section>
 
-    <!-- parte do video -->
     <main>
         <div class="container-video">
             <video class="video" controls playsinline preload="metadata" src="video/gameplay.mp4"></video>
         </div>
 
-
-
-        <!-- ferramentas usadas -->
         <section id="ferramentas">
             <h2 data-i18n="titulo_ferramentas">Ferramentas Usadas</h2>
             <div class="ferramentas-grid">
-
                 <div class="ferramenta">
-                    <img alt="Game Maker" src="img/game_maker.webp">
-                    <h3 data-i18n="nome_ferramenta1">Game Maker</h3>
+                    <img class="logo-escura" alt="Game Maker" src="img/game_maker.webp">
+                    <h3>Game Maker</h3>
                     <p data-i18n="desc_ferramenta1">Engine usada para desenvolver o jogo.</p>
                 </div>
-
                 <div class="ferramenta">
-                    <img alt="Ferramenta 2" src="ferramenta2.png">
-                    <h3 data-i18n="nome_ferramenta2">Ferramenta 2</h3>
-                    <p data-i18n="desc_ferramenta2">Descrição da Ferramenta 2.</p>
+                    <img alt="Piskel" src="img/logo_piskel.avif">
+                    <h3>Piskel</h3>
+                    <p data-i18n="desc_ferramenta2">Software usado para criar as cutscenes e algumas sprites.</p>
                 </div>
-
                 <div class="ferramenta">
-                    <img alt="Ferramenta 3" src="ferramenta3.png">
-                    <h3 data-i18n="nome_ferramenta3">Ferramenta 3</h3>
-                    <p data-i18n="desc_ferramenta3">Descrição da Ferramenta 3.</p>
+                    <img alt="Pixel Studio" src="img/pixel_studio_logo.png">
+                    <h3>Pixel Studio</h3>
+                    <p data-i18n="desc_ferramenta3">Software usado para criar as sprites.</p>
                 </div>
-
                 <div class="ferramenta">
                     <img alt="Suno" src="img/suno.png">
-                    <h3 data-i18n="nome_ferramenta4">Suno</h3>
+                    <h3>Suno</h3>
                     <p data-i18n="desc_ferramenta4">Software usado para criar música.</p>
                 </div>
-
             </div>
-
         </section>
 
-        <!-- galeria -->
         <section id="galeria">
-            <h2 data-i18n="titulo_galeria">Galeria</h2>
 
-            <!-- storyboard -->
+
             <h3 class="galeria-titulo" id="storyboard" data-i18n="galeria_storyboard">Storyboard</h3>
-            <div class="galeria-grid">
-                <img class="zoom" src="img/storyboard_1.png" alt="Storyboard 1" data-titulo="sb1_titulo"
-                    data-descricao="sb1_desc">
-                <img class="zoom" src="img/storyboard_2.png" alt="Storyboard 2" data-titulo="sb2_titulo"
-                    data-descricao="sb2_desc">
-                <img class="zoom" src="img/storyboard_3.png" alt="Storyboard 3" data-titulo="sb3_titulo"
-                    data-descricao="sb3_desc">
+            <div class="galeria-bloco">
+                <div class="galeria-grid">
+                    <img class="zoom" src="img/storyboard_1.png" alt="Storyboard 1" data-titulo="sb1_titulo"
+                        data-descricao="sb1_desc">
+                    <img class="zoom" src="img/storyboard_2.png" alt="Storyboard 2" data-titulo="sb2_titulo"
+                        data-descricao="sb2_desc">
+                    <img class="zoom" src="img/storyboard_3.png" alt="Storyboard 3" data-titulo="sb3_titulo"
+                        data-descricao="sb3_desc">
+                </div>
             </div>
 
-            <!-- cenarios -->
-            <h3 class="galeria-titulo" id="cenarios" data-i18n="galeria_cenarios">Cenários</h3>
-            <div class="galeria-grid">
-                <img class="zoom" src="img/cenarios/1.png" alt="Cenário 1">
-                <img class="zoom" src="img/cenarios/2.png" alt="Cenário 2">
-                <img class="zoom" src="img/cenarios/3.png" alt="Cenário 3">
-                <img class="zoom" src="img/cenarios/4.png" alt="Cenário 4">
-                <img class="zoom" src="img/cenarios/5.png" alt="Cenário 5">
-                <img class="zoom" src="img/cenarios/6.png" alt="Cenário 6">
+            <h3 class="galeria-titulo" id="sprites" data-i18n="galeria_sprites">Sprites</h3>
+            <div class="galeria-grid galeria-sprites">
+                <img class="zoom pixelado" src="img/fliperama_alfredo.png" alt="Protagonista" data-titulo="spr1_titulo"
+                    data-descricao="spr1_desc">
+                <img class="zoom pixelado" src="img/fliperama_cube.png" alt="Idoso" data-titulo="spr2_titulo"
+                    data-descricao="spr2_desc">
+                <img class="zoom" src="img/fliperama_pocket.png" alt="Fliperama Alfredos" data-titulo="spr3_titulo"
+                    data-descricao="spr3_desc">
+                <img class="zoom" src="img/mesa_fonte.png" alt="Fliperama Cube" data-titulo="spr4_titulo"
+                    data-descricao="spr4_desc">
+                <img class="zoom" src="img/mesa_gpu.png" alt="Fliperama Pocket" data-titulo="spr5_titulo"
+                    data-descricao="spr5_desc">
+                <img class="zoom" src="img/mesa_hd.png" alt="Placa de vídeo" data-titulo="spr6_titulo"
+                    data-descricao="spr6_desc">
             </div>
 
-            <!-- codigo -->
             <h3 class="galeria-titulo" id="codigo" data-i18n="galeria_codigo">Código</h3>
             <div class="galeria-grid galeria-codigo">
-                <img class="zoom" src="img/codigo/1.png" alt="Código 1">
-                <img class="zoom" src="img/codigo/2.png" alt="Código 2">
-                <img class="zoom" src="img/codigo/3.png" alt="Código 3">
-                <img class="zoom" src="img/codigo/4.png" alt="Código 4">
-                <img class="zoom" src="img/codigo/5.png" alt="Código 5">
-                <img class="zoom" src="img/codigo/6.png" alt="Código 6">
+                <img class="zoom" src="img/codigo_1.jpeg" alt="Código 1" data-titulo="cod1_titulo"
+                    data-descricao="cod1_desc">
+                <img class="zoom" src="img/codigo_2.jpeg" alt="Código 2" data-titulo="cod2_titulo"
+                    data-descricao="cod2_desc">
+                <img class="zoom" src="img/codigo_js.png" alt="Código 3" data-titulo="cod3_titulo"
+                    data-descricao="cod3_desc">
             </div>
         </section>
 
-        <!-- seçao dos criadores -->
         <section id="criadores">
             <h2 data-i18n="nav_criadores">Criadores</h2>
             <div class="carousel-wrapper">
-
                 <button id="prev" aria-label="anterior">&#10094;</button>
-
-                <!-- inicio do carousel -->
                 <div class="carousel">
                     <div class="carousel-track">
-
-                        <!-- card do criador 1 -->
                         <div class="card">
-                            <img class="img-card" alt="Foto do Criador 1" src="img/karlos.png">
-                            <h3>Karlos Eduardo</h3>
-                            <p data-i18n="funcao_criador1">Programador</p>
-                            <a class="btn-github" href="https://github.com/Karlos024" target="_blank">GitHub</a>
+                            <div class="card-sprite"><img src="img/sprites/karlos.png" alt="Sprite de Karlos Eduardo">
+                            </div>
+                            <div class="card-info">
+                                <div class="card-topo">
+                                    <img class="img-card" src="img/karlos.png" alt="Foto de Karlos Eduardo">
+                                    <div>
+                                        <h3>Karlos Eduardo</h3>
+                                        <p class="card-funcao" data-i18n="funcao_criador1">Programador</p>
+                                    </div>
+                                </div>
+                                <a class="btn-github" href="https://github.com/Karlos024" target="_blank"
+                                    rel="noopener">GitHub</a>
+                            </div>
                         </div>
-
-                        <!-- card do criador 2 -->
                         <div class="card">
-                            <img class="img-card" alt="Foto do Criador 2"
-                                src="https://interd.net.br/wp-content/uploads/2023/06/chico_buarque_de_1966_album_capa-850x560.jpg">
-                            <h3>Kauan Saraiva</h3>
-                            <p data-i18n="funcao_criador2">Programador</p>
-                            <a class="btn-github" href="https://github.com/Kauan0315" target="_blank">GitHub</a>
+                            <div class="card-sprite"><img src="img/sprites/kauan.png" alt="Sprite de Kauan Saraiva">
+                            </div>
+                            <div class="card-info">
+                                <div class="card-topo">
+                                    <img class="img-card" alt="Foto de Kauan Saraiva" src="img/kauan.png">
+                                    <div>
+                                        <h3>Kauan Saraiva</h3>
+                                        <p class="card-funcao" data-i18n="funcao_criador2">Programador</p>
+                                    </div>
+                                </div>
+                                <a class="btn-github" href="https://github.com/Kauan0315" target="_blank"
+                                    rel="noopener">GitHub</a>
+                            </div>
                         </div>
-
-                        <!-- card do criador 3 -->
                         <div class="card">
-                            <img class="img-card" alt="Foto do Criador 3"
-                                src="https://interd.net.br/wp-content/uploads/2023/06/chico_buarque_de_1966_album_capa-850x560.jpg">
-                            <h3>Lucas Franco</h3>
-                            <p data-i18n="funcao_criador3">Cenários e Sprites</p>
-                            <a class="btn-github" href="https://github.com/LucasFranco2712" target="_blank">GitHub</a>
+                            <div class="card-sprite"><img src="img/sprites/lucas.png" alt="Sprite de Lucas Franco">
+                            </div>
+                            <div class="card-info">
+                                <div class="card-topo">
+                                    <img class="img-card" alt="Foto de Lucas Franco" src="img/lucas.png">
+                                    <div>
+                                        <h3>Lucas Franco</h3>
+                                        <p class="card-funcao" data-i18n="funcao_criador3">Cenários e Sprites</p>
+                                    </div>
+                                </div>
+                                <a class="btn-github" href="https://github.com/LucasFranco2712" target="_blank"
+                                    rel="noopener">GitHub</a>
+                            </div>
                         </div>
-
-                        <!-- card do criador 4 -->
                         <div class="card">
-                            <img class="img-card" alt="Foto do Criador 4"
-                                src="https://interd.net.br/wp-content/uploads/2023/06/chico_buarque_de_1966_album_capa-850x560.jpg">
-                            <h3>Rafael Cavalcanti</h3>
-                            <p data-i18n="funcao_criador4">Programador Web e Músicas</p>
-                            <a class="btn-github" href="https://github.com/rafinha008" target="_blank">GitHub</a>
+                            <div class="card-sprite"><img src="img/sprites/rafael.png"
+                                    alt="Sprite de Rafael Cavalcanti"></div>
+                            <div class="card-info">
+                                <div class="card-topo">
+                                    <img class="img-card" alt="Foto de Rafael Cavalcanti" src="img/rafael.png">
+                                    <div>
+                                        <h3>Rafael Cavalcanti</h3>
+                                        <p class="card-funcao" data-i18n="funcao_criador4">Programador Web e Músicas</p>
+                                    </div>
+                                </div>
+                                <a class="btn-github" href="https://github.com/rafinha008" target="_blank"
+                                    rel="noopener">GitHub</a>
+                            </div>
                         </div>
-
-                        <!-- card do criador 5 -->
                         <div class="card">
-                            <img class="img-card" alt="Foto do Criador 5"
-                                src="https://interd.net.br/wp-content/uploads/2023/06/chico_buarque_de_1966_album_capa-850x560.jpg">
-                            <h3>Vitor Yuji</h3>
-                            <p data-i18n="funcao_criador5">Cenários e Cutscenes</p>
-                            <a class="btn-github" href="https://github.com" target="_blank">GitHub</a>
+                            <div class="card-sprite"><img src="img/sprites/vitor.png" alt="Sprite de Vitor Yuji"></div>
+                            <div class="card-info">
+                                <div class="card-topo">
+                                    <img class="img-card" alt="Foto de Vitor Yuji" src="img/vitor.png">
+                                    <div>
+                                        <h3>Vitor Yuji</h3>
+                                        <p class="card-funcao" data-i18n="funcao_criador5">Cenários e Cutscenes</p>
+                                    </div>
+                                </div>
+                                <a class="btn-github" href="https://github.com/vitor2yuji" target="_blank"
+                                    rel="noopener">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -194,28 +214,26 @@
             </div>
         </section>
 
-        <!-- creditos finais -->
         <section id="creditos">
             <h2 data-i18n="titulo_creditos">Créditos</h2>
             <p data-i18n="desc_creditos">Obrigado por jogar ByteRise!</p>
             <div class="botoes-creditos">
                 <a class="btn-download" href="downloads/ByteRise.zip" download data-i18n="btn_download">Baixar o
                     jogo</a>
-                <a class="btn-doc" href="docs/Informações_sobre_o_ByteRise.pdf" target="_blank" rel="noopener"
-                    data-i18n="nav_documentacao">Documentação</a>
+                <button type="button" class="btn-doc" id="btn-docs" aria-haspopup="dialog"
+                    data-i18n="nav_documentacao">Documentação</button>
             </div>
         </section>
 
     </main>
+
     <footer>
         <p data-i18n="footer_direitos">2026 ByteRise. Todos os direitos reservados.</p>
         <p class="voltar-topo"><a href="#" data-i18n="footer_voltar_topo">Voltar ao topo</a></p>
     </footer>
 
-    <!-- troca de tema -->
     <button id="troca-tema" aria-label="Trocar tema">&#9790;</button>
 
-    <!-- imagem ampliada -->
     <div id="lightbox" class="lightbox">
         <button class="lightbox-fechar" aria-label="Fechar">&times;</button>
         <div class="lightbox-conteudo">
@@ -227,8 +245,30 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="docs-modal" class="docs-modal" role="dialog" aria-modal="true" aria-labelledby="docs-titulo">
+        <div class="docs-painel">
+            <button class="docs-fechar" aria-label="Fechar">&times;</button>
+            <h3 id="docs-titulo" data-i18n="nav_documentacao">Documentação</h3>
+            <p class="docs-sub" data-i18n="docs_escolha">Escolha um arquivo para abrir:</p>
+            <ul class="docs-lista">
+                <li>
+                    <a href="docs/Informacoes_sobre_o_ByteRise.pdf" target="_blank" rel="noopener">
+                        <span class="docs-nome" data-i18n="doc1_nome">Informações sobre o ByteRise</span>
+                        <span class="docs-desc" data-i18n="doc1_desc">Documento com detalhes sobre o desenvolvimento do
+                            jogo.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="docs/Storyboard.pdf" target="_blank" rel="noopener">
+                        <span class="docs-nome" data-i18n="doc2_nome">Storyboard</span>
+                        <span class="docs-desc" data-i18n="doc2_desc">Esboços originais e planejamento visual.</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
