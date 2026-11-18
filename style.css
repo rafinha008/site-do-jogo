@@ -98,6 +98,69 @@ nav {
     color: var(--cor-nav-hover-texto);
 }
 
+/* logo da navbar */
+.navbar a.logo {
+    padding: 8px 18px;
+}
+
+.navbar .logo img {
+    display: block;
+    height: 36px;
+    width: auto;
+}
+
+/* titulo principal no topo da pagina */
+.hero {
+    text-align: center;
+    margin: 30px 20px 10px;
+}
+
+.hero h1 {
+    margin: 0;
+}
+
+.hero img {
+    width: min(340px, 80%);
+    height: auto;
+}
+
+/* as 3 fases: tres colunas com imagem redonda e o nome */
+.fases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.fase-img {
+    width: min(150px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--cor-ferramenta-fundo);
+    box-shadow: 0px 6px 16px var(--cor-brilho);
+    image-rendering: pixelated;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ao passar o mouse o circulo sobe um pouco */
+.fase:hover .fase-img {
+    transform: translateY(-6px);
+}
+
+.fase h3 {
+    margin: 14px 0 0;
+    font-size: 1.3rem;
+    color: var(--cor-ferramenta-nome);
+}
+
+.fase-desc {
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+    color: var(--cor-texto);
+    opacity: 0.85;
+}
+
 .navbar .logo {
     font-weight: 700;
     font-size: 20px;
@@ -452,8 +515,8 @@ footer a {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* galeria um pouco mais larga: as imagens ficam cerca de 20% maiores */
-#galeria {
+#galeria,
+#codigo {
     max-width: 1100px;
 }
 
@@ -470,18 +533,140 @@ footer a {
     margin: 0;
 }
 
+/* codigo: uma linha por codigo (print grande + animacao do lado) */
+.codigo-item {
+    margin-bottom: 20px;
+}
+
+.codigo-par {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 4px;
+}
+
+/* card fechado: so a barra com o titulo, o resto abre ao passar o mouse */
+.codigo-titulo {
+    margin: 0;
+    color: var(--cor-ferramenta-nome);
+}
+
+/* a barra do titulo e um botao (funciona com toque e teclado) */
+.codigo-cabeca {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.codigo-dica {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    color: var(--cor-texto);
+    opacity: 0.8;
+}
+
+.codigo-seta {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+/* conteudo escondido: altura 0 ate abrir */
+.codigo-corpo {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+
+/* aberto pelo clique/toque */
+.codigo-item.aberto .codigo-corpo {
+    max-height: 900px;
+    opacity: 1;
+    margin-top: 14px;
+}
+
+.codigo-item.aberto .codigo-seta {
+    transform: rotate(180deg);
+}
+
+/* aberto ao passar o mouse (so em telas que tem mouse) */
+@media (hover: hover) {
+    .codigo-item:hover .codigo-corpo {
+        max-height: 900px;
+        opacity: 1;
+        margin-top: 14px;
+    }
+
+    .codigo-item:hover .codigo-seta {
+        transform: rotate(180deg);
+    }
+}
+
+/* o print ocupa mais espaco (3 partes contra 2 da animacao) */
+.codigo-print {
+    flex: 3 1 0;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+
+.codigo-anim {
+    flex: 2 1 0;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.codigo-anim figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* animacao feita com frames */
+.animacao {
+    width: 100%;
+    max-width: 360px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
 /* prints de codigo: mostra a imagem inteira (sem cortar as bordas) */
 .galeria-codigo img {
     object-fit: contain;
     background-color: var(--cor-ferramenta-fundo);
 }
 
-/* sprites: mostra inteira, com fundo e uma folguinha em volta */
+/* sprites: mostra inteira, com fundo levemente contrastante e folguinha em volta */
 .galeria-sprites img {
     object-fit: contain;
-    background-color: var(--cor-ferramenta-fundo);
-    padding: 10px;
+    background-color: var(--cor-fundo);
+    padding: 12px;
     box-sizing: border-box;
+}
+
+/* grade de 2 itens centralizados (Fase 3) */
+.galeria-grid.galeria-2-itens {
+    grid-template-columns: repeat(2, minmax(0, 320px));
+    justify-content: center;
 }
 
 /* sprite pequena: ao ampliar, os pixels ficam quadradinhos em vez de borrados */
@@ -500,6 +685,140 @@ footer a {
     cursor: zoom-in;
 }
 
+/* Container de evolução dentro do grid de sprites */
+.sprite-evolucao {
+    position: relative;
+    display: flex;
+}
+
+.sprite-evolucao img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Grade dupla (2 carrosséis lado a lado embaixo dos cenários) */
+.galeria-grid-dupla {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(106, 79, 200, 0.2);
+}
+
+.carrossel-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subgaleria-titulo {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    color: var(--cor-ferramenta-nome);
+    text-align: center;
+}
+
+.carrossel-coluna .sprite-evolucao {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 4 / 3;
+}
+
+/* Navegação dentro do Lightbox */
+.lightbox-img-box {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.lightbox-nav {
+    display: none;
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.lightbox-nav:hover {
+    filter: brightness(1.2);
+    transform: scale(1.08);
+}
+
+.lightbox.tem-evolucao .lightbox-nav {
+    display: block;
+}
+
+/* seção de trilha sonora */
+.musicas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.musica-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background-color: var(--cor-ferramenta-fundo);
+    border-radius: 14px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.musica-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.musica-card.tocando {
+    outline: 2px solid var(--cor-destaque);
+    box-shadow: 0px 4px 16px var(--cor-brilho);
+}
+
+.musica-info h3 {
+    margin: 0 0 4px;
+    color: var(--cor-ferramenta-nome);
+}
+
+.musica-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.btn-play {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-play:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+}
 
 /* imagem ampliada com quadrado de descricao ao lado */
 .lightbox {
@@ -583,6 +902,10 @@ footer a {
         gap: 15px;
     }
 
+    .lightbox-img-box {
+        width: 100%;
+    }
+
     .lightbox-conteudo img {
         max-height: 60vh;
     }
@@ -592,6 +915,42 @@ footer a {
         width: 100%;
         max-height: none;
         box-sizing: border-box;
+    }
+
+    /* prints de codigo: a imagem fica o maior possivel (da pra ler no projetor) */
+    .lightbox.modo-codigo {
+        padding: 50px 15px 15px;
+    }
+
+    .lightbox.modo-codigo .lightbox-conteudo {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    .lightbox.modo-codigo .lightbox-conteudo img {
+        width: 100%;
+        height: calc(100vh - 170px);
+        max-height: none;
+        object-fit: contain;
+    }
+
+    /* titulo e descricao viram uma faixa fina embaixo */
+    .lightbox.modo-codigo .lightbox-info {
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: 90px;
+        padding: 10px 18px;
+        box-sizing: border-box;
+    }
+
+    .lightbox.modo-codigo .lightbox-info h3 {
+        margin: 0 0 4px;
+        font-size: 18px;
+    }
+
+    .lightbox.modo-codigo .lightbox-info p {
+        font-size: 14px;
     }
 }
 
@@ -616,6 +975,9 @@ footer a {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     /* a transicao deixa a subida do botao suave */
     transition: transform 0.3s ease, filter 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .btn-download:hover {
@@ -657,6 +1019,7 @@ footer a {
     background-color: var(--cor-destaque);
     color: white;
 }
+
 
 /* painel de documentos (abre ao clicar no botao de documentacao) */
 .docs-modal {
@@ -747,6 +1110,61 @@ footer a {
 }
 
 
+/* painel de download: QR grande de um lado, opcoes do outro */
+.download-painel {
+    max-width: 720px;
+}
+
+.download-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.download-qr {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+/* fundo branco fixo, senao nao da pra escanear no tema escuro */
+.download-qr img {
+    display: block;
+    width: 260px;
+    height: 260px;
+    padding: 12px;
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.download-qr p {
+    margin: 10px 0 0;
+    color: #dbe7fb;
+}
+
+.download-opcoes {
+    flex: 1;
+    min-width: 0;
+}
+
+/* celular: o QR vai pra cima e as opcoes ficam embaixo */
+@media (max-width: 600px) {
+    .download-conteudo {
+        flex-direction: column;
+    }
+
+    .download-qr img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .galeria-bloco .galeria-grid,
+    .galeria-grid-dupla {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* responsivo (tem que ficar no final do arquivo) */
 
 /* celular grande: o menu vira tres linhas e os links ficam escondidos ate clicar no botao
@@ -815,7 +1233,9 @@ footer a {
         flex-direction: column;
     }
 
-    .galeria-bloco .galeria-grid {
+    .galeria-bloco .galeria-grid,
+    .galeria-grid-dupla,
+    .musicas-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -855,5 +1275,18 @@ footer a {
     footer {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* celular: o codigo fica em cima e a animacao embaixo */
+@media (max-width: 700px) {
+    .codigo-par {
+        flex-direction: column;
+    }
+
+    .codigo-print,
+    .codigo-anim {
+        flex: 0 0 auto;
+        width: 100%;
     }
 }

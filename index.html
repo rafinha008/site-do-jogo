@@ -12,26 +12,27 @@
 <body class="body">
     <nav>
         <div class="navbar">
-            <a href="#" class="logo">ByteRise</a>
+            <a href="#" class="logo"><img src="img/logo_navbar.png" alt="ByteRise"></a>
 
             <div class="nav-links" id="menu-links">
                 <a href="#" data-i18n="nav_inicio">Início</a>
                 <a href="#sobre" data-i18n="nav_sobre">Sobre</a>
-                <a href="#storyboard" data-i18n="galeria_storyboard">Storyboard</a>
-                <a href="#sprites" data-i18n="galeria_sprites">Sprites</a>
                 <a href="#codigo" data-i18n="galeria_codigo">Código</a>
+                <a href="#sprites" data-i18n="galeria_sprites">Sprites</a>
+                <a href="#storyboard" data-i18n="galeria_storyboard">Storyboard</a>
+                <a href="#musica" data-i18n="nav_musica">Músicas</a>
                 <a href="#criadores" data-i18n="nav_criadores">Criadores</a>
             </div>
 
             <div class="lang">
                 <button data-lang="pt" aria-label="Português" title="Português">
-                    <img src="img/br.svg" alt="Bandeira do Brasil">
+                    <img src="img/bandeiras/br.svg" alt="Bandeira do Brasil">
                 </button>
                 <button data-lang="en" aria-label="English" title="English">
-                    <img src="img/us.svg" alt="Flag of the United States">
+                    <img src="img/bandeiras/us.svg" alt="Flag of the United States">
                 </button>
                 <button data-lang="es" aria-label="Español" title="Español">
-                    <img src="img/es.svg" alt="Bandera de España">
+                    <img src="img/bandeiras/es.svg" alt="Bandera de España">
                 </button>
             </div>
 
@@ -39,6 +40,34 @@
                 aria-controls="menu-links">&#9776;</button>
         </div>
     </nav>
+
+    <!-- titulo principal -->
+    <header class="hero">
+        <h1><img src="img/titulo_byterise.png" alt="ByteRise"></h1>
+    </header>
+
+    <div class="container-video">
+        <video class="video" controls playsinline preload="metadata" src="video/gameplay.mp4"></video>
+    </div>
+
+    <!-- as 3 fases -->
+    <section id="fases" class="fases">
+        <div class="fase">
+            <img class="fase-img" src="img/fases/fase1.png" alt="Símbolo da Fase 1">
+            <h3 data-i18n="fase1_nome">Fase 1</h3>
+            <p class="fase-desc" data-i18n="fase1_desc">Lan House</p>
+        </div>
+        <div class="fase">
+            <img class="fase-img" src="img/fases/fase2.png" alt="Símbolo da Fase 2">
+            <h3 data-i18n="fase2_nome">Fase 2</h3>
+            <p class="fase-desc" data-i18n="fase2_desc">Assistência Técnica</p>
+        </div>
+        <div class="fase">
+            <img class="fase-img" src="img/fases/fase3.png" alt="Símbolo da Fase 3">
+            <h3 data-i18n="fase3_nome">Fase 3</h3>
+            <p class="fase-desc" data-i18n="fase3_desc">Empresa de Tecnologia</p>
+        </div>
+    </section>
 
     <section id="sobre">
         <h2 data-i18n="titulo_sobre">Sobre o Jogo</h2>
@@ -55,32 +84,92 @@
         </div>
     </section>
 
-    <main>
-        <div class="container-video">
-            <video class="video" controls playsinline preload="metadata" src="video/gameplay.mp4"></video>
+    <!-- codigo -->
+    <section id="codigo">
+        <h2 data-i18n="galeria_codigo">Código</h2>
+
+        <!-- codigo 1 -->
+        <div class="galeria-bloco codigo-item">
+            <h3 class="codigo-titulo">
+                <button type="button" class="codigo-cabeca" aria-expanded="false">
+                    <span data-i18n="cod1_titulo">Código 1</span>
+                    <span class="codigo-dica"><span data-i18n="codigo_dica">Passe o mouse ou toque para abrir</span>
+                        <span class="codigo-seta">&#9662;</span></span>
+                </button>
+            </h3>
+            <div class="codigo-corpo">
+                <div class="codigo-par">
+                    <img class="zoom zoom-codigo codigo-print" src="img/codigos/codigo_1.jpeg" alt="Código 1"
+                        data-titulo="cod1_titulo" data-descricao="cod1_desc">
+                    <figure class="codigo-anim">
+                        <img class="animacao" src="img/codigos/animacao/codigo1/codigo1_1.jpeg"
+                            alt="Código 1 em ação no jogo" data-frames="img/codigos/animacao/codigo1/codigo1_{n}.jpeg"
+                            data-total="5" data-fps="2">
+                        <figcaption data-i18n="codigo_resultado">Resultado no jogo</figcaption>
+                    </figure>
+                </div>
+            </div>
         </div>
+
+        <!-- codigo 2 -->
+        <div class="galeria-bloco codigo-item">
+            <h3 class="codigo-titulo">
+                <button type="button" class="codigo-cabeca" aria-expanded="false">
+                    <span data-i18n="cod2_titulo">Código 2</span>
+                    <span class="codigo-dica"><span data-i18n="codigo_dica">Passe o mouse ou toque para abrir</span>
+                        <span class="codigo-seta">&#9662;</span></span>
+                </button>
+            </h3>
+            <div class="codigo-corpo">
+                <div class="codigo-par">
+                    <img class="zoom zoom-codigo codigo-print" src="img/codigos/codigo_2.jpeg" alt="Código 2"
+                        data-titulo="cod2_titulo" data-descricao="cod2_desc">
+                    <figure class="codigo-anim">
+                        <img class="animacao" src="img/codigos/animacao/codigo2/codigo2_1.jpeg"
+                            alt="Código 2 em ação no jogo" data-frames="img/codigos/animacao/codigo2/codigo2_{n}.jpeg"
+                            data-total="4" data-fps="2">
+                        <figcaption data-i18n="codigo_resultado">Resultado no jogo</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- codigos 3, 4 e 5 enfileirados (sem animacao, so ampliar) -->
+        <div class="galeria-bloco">
+            <div class="galeria-grid galeria-codigo">
+                <img class="zoom zoom-codigo" src="img/codigos/codigo_3.jpeg" alt="Código 3" data-titulo="cod3_titulo"
+                    data-descricao="cod3_desc">
+                <img class="zoom zoom-codigo" src="img/codigos/codigo_4.jpeg" alt="Código 4" data-titulo="cod4_titulo"
+                    data-descricao="cod4_desc">
+                <img class="zoom zoom-codigo" src="img/codigos/codigo_js.png" alt="Código 5" data-titulo="cod5_titulo"
+                    data-descricao="cod5_desc">
+            </div>
+        </div>
+    </section>
+
+    <main>
 
         <section id="ferramentas">
             <h2 data-i18n="titulo_ferramentas">Ferramentas Usadas</h2>
             <div class="ferramentas-grid">
                 <div class="ferramenta">
-                    <img class="logo-escura" alt="Game Maker" src="img/game_maker.webp">
+                    <img class="logo-escura" alt="Game Maker" src="img/ferramentas/logo_game_maker.webp">
                     <h3>Game Maker</h3>
                     <p data-i18n="desc_ferramenta1">Engine usada para desenvolver o jogo.</p>
                 </div>
                 <div class="ferramenta">
-                    <img alt="Piskel" src="img/logo_piskel.avif">
+                    <img alt="Piskel" src="img/ferramentas/logo_piskel.avif">
                     <h3>Piskel</h3>
                     <p data-i18n="desc_ferramenta2">Software usado para criar as cutscenes e algumas sprites.</p>
                 </div>
                 <div class="ferramenta">
-                    <img alt="Pixel Studio" src="img/pixel_studio_logo.png">
+                    <img alt="Pixel Studio" src="img/ferramentas/logo_pixel_studio.png">
                     <h3>Pixel Studio</h3>
                     <p data-i18n="desc_ferramenta3">Software usado para criar as sprites.</p>
                 </div>
                 <div class="ferramenta">
-                    <img alt="Suno" src="img/suno.png">
-                    <h3>Suno</h3>
+                    <img alt="Suno" src="img/ferramentas/logo_bandlab.png">
+                    <h3>BandLab</h3>
                     <p data-i18n="desc_ferramenta4">Software usado para criar música.</p>
                 </div>
             </div>
@@ -88,43 +177,151 @@
 
         <section id="galeria">
 
+            <!-- 1. Fase 1 (Fliperamas) -->
+            <h3 class="galeria-titulo" id="sprites" data-i18n="fase1_nome">Fase 1</h3>
+            <div class="galeria-bloco">
+                <div class="galeria-grid galeria-sprites">
+                    <!-- Fliperama Alfredo (4 evoluções) -->
+                    <div class="sprite-evolucao" data-frames="img/fliperamas/alfredo/alfredo{n}.png" data-total="4"
+                        data-fps="0.5" data-titulos="spr1_v1_titulo,spr1_v2_titulo,spr1_v3_titulo,spr1_v4_titulo"
+                        data-descs="spr1_v1_desc,spr1_v2_desc,spr1_v3_desc,spr1_v4_desc">
+                        <img class="zoom pixelado" src="img/fliperamas/alfredo/alfredo1.png" alt="Fliperama Alfredo">
+                    </div>
 
-            <h3 class="galeria-titulo" id="storyboard" data-i18n="galeria_storyboard">Storyboard</h3>
+                    <!-- Fliperama Cube (4 evoluções) -->
+                    <div class="sprite-evolucao" data-frames="img/fliperamas/cube/cube{n}.png" data-total="4"
+                        data-fps="0.5" data-titulos="spr2_v1_titulo,spr2_v2_titulo,spr2_v3_titulo,spr2_v4_titulo"
+                        data-descs="spr2_v1_desc,spr2_v2_desc,spr2_v3_desc,spr2_v4_desc">
+                        <img class="zoom pixelado" src="img/fliperamas/cube/cube1.png" alt="Fliperama Cube">
+                    </div>
+
+                    <!-- Fliperama Pocket (4 evoluções) -->
+                    <div class="sprite-evolucao" data-frames="img/fliperamas/pocket/pocket{n}.png" data-total="4"
+                        data-fps="0.5" data-titulos="spr3_v1_titulo,spr3_v2_titulo,spr3_v3_titulo,spr3_v4_titulo"
+                        data-descs="spr3_v1_desc,spr3_v2_desc,spr3_v3_desc,spr3_v4_desc">
+                        <img class="zoom pixelado" src="img/fliperamas/pocket/pocket1.png" alt="Fliperama Pocket">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Fase 2 (Mesas) -->
+            <h3 class="galeria-titulo" data-i18n="fase2_nome">Fase 2</h3>
+            <div class="galeria-bloco">
+                <div class="galeria-grid galeria-sprites">
+                    <img class="zoom" src="img/mesa_fonte.png" alt="Mesa Fonte" data-titulo="spr4_titulo"
+                        data-descricao="spr4_desc">
+                    <img class="zoom" src="img/mesa_gpu.png" alt="Mesa GPU" data-titulo="spr5_titulo"
+                        data-descricao="spr5_desc">
+                    <img class="zoom" src="img/mesa_hd.png" alt="Mesa HD" data-titulo="spr6_titulo"
+                        data-descricao="spr6_desc">
+                </div>
+            </div>
+
+            <!-- 3. Fase 3 (Empresa de Tecnologia) -->
+            <h3 class="galeria-titulo" data-i18n="fase3_nome">Fase 3</h3>
+            <div class="galeria-bloco">
+                <div class="galeria-grid galeria-sprites galeria-2-itens">
+                    <img class="zoom pixelado" src="img/caminhao.png" alt="Caminhão de Entregas"
+                        data-titulo="spr7_titulo" data-descricao="spr7_desc">
+                    <img class="zoom pixelado" src="img/esteira.png" alt="Esteira de Produção" data-titulo="spr8_titulo"
+                        data-descricao="spr8_desc">
+                </div>
+            </div>
+
+            <!-- 4. Cenários -->
+            <h3 class="galeria-titulo" id="cenarios" data-i18n="galeria_cenarios">Cenários</h3>
             <div class="galeria-bloco">
                 <div class="galeria-grid">
-                    <img class="zoom" src="img/storyboard_1.png" alt="Storyboard 1" data-titulo="sb1_titulo"
+                    <!-- Cenário Fase 1 (4 evoluções) -->
+                    <div class="sprite-evolucao" data-frames="img/cenarios/cenario_fase1/cenario1_{n}.png"
+                        data-total="4" data-fps="0.5"
+                        data-titulos="cen1_v1_titulo,cen1_v2_titulo,cen1_v3_titulo,cen1_v4_titulo"
+                        data-descs="cen1_v1_desc,cen1_v2_desc,cen1_v3_desc,cen1_v4_desc">
+                        <img class="zoom pixelado" src="img/cenarios/cenario_fase1/cenario1_1.png" alt="Cenário Fase 1">
+                    </div>
+
+                    <!-- Cenário Fase 2 (4 evoluções) -->
+                    <div class="sprite-evolucao" data-frames="img/cenarios/cenario_fase2/cenario2_{n}.png"
+                        data-total="4" data-fps="0.5"
+                        data-titulos="cen2_v1_titulo,cen2_v2_titulo,cen2_v3_titulo,cen2_v4_titulo"
+                        data-descs="cen2_v1_desc,cen2_v2_desc,cen2_v3_desc,cen2_v4_desc">
+                        <img class="zoom pixelado" src="img/cenarios/cenario_fase2/cenario2_1.png" alt="Cenário Fase 2">
+                    </div>
+
+                    <!-- Cenário Fase 3 (estático - apenas 1 versão) -->
+                    <img class="zoom pixelado" src="img/cenarios/cenario_fase3/cenario3_1.png" alt="Cenário Fase 3"
+                        data-titulo="cen3_titulo" data-descricao="cen3_desc">
+                </div>
+
+                <!-- Linha de baixo dentro do mesmo bloco: Personagens e Personagem Principal lado a lado -->
+                <div class="galeria-grid-dupla galeria-sprites">
+                    <!-- Carrossel 1: Personagens (7 sprites) -->
+                    <div class="carrossel-coluna">
+                        <h4 class="subgaleria-titulo" data-i18n="titulo_personagens">Personagens</h4>
+                        <div class="sprite-evolucao"
+                            data-lista="img/personagens/esbanjador.png,img/personagens/idoso.png,img/personagens/mae_e_filho.png,img/personagens/montador.png,img/personagens/pao_duro.png,img/personagens/programador.png,img/personagens/recolhimento.png"
+                            data-fps="0.5"
+                            data-titulos="pers1_titulo,pers2_titulo,pers3_titulo,pers4_titulo,pers5_titulo,pers6_titulo,pers7_titulo"
+                            data-descs="pers1_desc,pers2_desc,pers3_desc,pers4_desc,pers5_desc,pers6_desc,pers7_desc">
+                            <img class="zoom pixelado" src="img/personagens/esbanjador.png" alt="Personagens">
+                        </div>
+                    </div>
+
+                    <!-- Carrossel 2: Personagem Principal (3 sprites) -->
+                    <div class="carrossel-coluna">
+                        <h4 class="subgaleria-titulo" data-i18n="titulo_principal">Personagem Principal</h4>
+                        <div class="sprite-evolucao"
+                            data-lista="img/personagens/principal_1.png,img/personagens/principal_2.png,img/personagens/principal_3.png"
+                            data-fps="0.5" data-titulos="prin1_titulo,prin2_titulo,prin3_titulo"
+                            data-descs="prin1_desc,prin2_desc,prin3_desc">
+                            <img class="zoom pixelado" src="img/personagens/principal_1.png" alt="Personagem Principal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Storyboards -->
+            <h3 class="galeria-titulo" id="storyboard" data-i18n="galeria_storyboards">Storyboards</h3>
+            <div class="galeria-bloco">
+                <div class="galeria-grid">
+                    <img class="zoom" src="img/storyboard/std_fase1.jpeg" alt="Storyboard 1" data-titulo="sb1_titulo"
                         data-descricao="sb1_desc">
-                    <img class="zoom" src="img/storyboard_2.png" alt="Storyboard 2" data-titulo="sb2_titulo"
+                    <img class="zoom" src="img/storyboard/std_fase2.jpeg" alt="Storyboard 2" data-titulo="sb2_titulo"
                         data-descricao="sb2_desc">
-                    <img class="zoom" src="img/storyboard_3.png" alt="Storyboard 3" data-titulo="sb3_titulo"
+                    <img class="zoom" src="img/storyboard/std_fase3.jpeg" alt="Storyboard 3" data-titulo="sb3_titulo"
                         data-descricao="sb3_desc">
                 </div>
             </div>
 
-            <h3 class="galeria-titulo" id="sprites" data-i18n="galeria_sprites">Sprites</h3>
-            <div class="galeria-grid galeria-sprites">
-                <img class="zoom pixelado" src="img/fliperama_alfredo.png" alt="Protagonista" data-titulo="spr1_titulo"
-                    data-descricao="spr1_desc">
-                <img class="zoom pixelado" src="img/fliperama_cube.png" alt="Idoso" data-titulo="spr2_titulo"
-                    data-descricao="spr2_desc">
-                <img class="zoom" src="img/fliperama_pocket.png" alt="Fliperama Alfredos" data-titulo="spr3_titulo"
-                    data-descricao="spr3_desc">
-                <img class="zoom" src="img/mesa_fonte.png" alt="Fliperama Cube" data-titulo="spr4_titulo"
-                    data-descricao="spr4_desc">
-                <img class="zoom" src="img/mesa_gpu.png" alt="Fliperama Pocket" data-titulo="spr5_titulo"
-                    data-descricao="spr5_desc">
-                <img class="zoom" src="img/mesa_hd.png" alt="Placa de vídeo" data-titulo="spr6_titulo"
-                    data-descricao="spr6_desc">
-            </div>
+        </section>
 
-            <h3 class="galeria-titulo" id="codigo" data-i18n="galeria_codigo">Código</h3>
-            <div class="galeria-grid galeria-codigo">
-                <img class="zoom" src="img/codigo_1.jpeg" alt="Código 1" data-titulo="cod1_titulo"
-                    data-descricao="cod1_desc">
-                <img class="zoom" src="img/codigo_2.jpeg" alt="Código 2" data-titulo="cod2_titulo"
-                    data-descricao="cod2_desc">
-                <img class="zoom" src="img/codigo_js.png" alt="Código 3" data-titulo="cod3_titulo"
-                    data-descricao="cod3_desc">
+        <!-- trilha sonora -->
+        <section id="musica">
+            <h2 data-i18n="titulo_musica">Trilha Sonora</h2>
+            <div class="musicas-grid">
+                <!-- Música 1 -->
+                <div class="musica-card">
+                    <div class="musica-info">
+                        <h3 data-i18n="mus1_titulo">Música 1</h3>
+                        <p data-i18n="mus1_desc">Trilha de fundo</p>
+                    </div>
+                    <button type="button" class="btn-play" data-audio="audio-1" aria-label="Tocar Música 1">
+                        &#9654;
+                    </button>
+                    <audio id="audio-1" src="video/musica.mp3.mpeg" preload="metadata"></audio>
+                </div>
+
+                <!-- Música 2 -->
+                <div class="musica-card">
+                    <div class="musica-info">
+                        <h3 data-i18n="mus2_titulo">Música 2</h3>
+                        <p data-i18n="mus2_desc">Trilha de vitória</p>
+                    </div>
+                    <button type="button" class="btn-play" data-audio="audio-2" aria-label="Tocar Música 2">
+                        &#9654;
+                    </button>
+                    <audio id="audio-2" src="video/musica-fim.mp3.mpeg" preload="metadata"></audio>
+                </div>
             </div>
         </section>
 
@@ -135,11 +332,12 @@
                 <div class="carousel">
                     <div class="carousel-track">
                         <div class="card">
-                            <div class="card-sprite"><img src="img/sprites/karlos.png" alt="Sprite de Karlos Eduardo">
+                            <div class="card-sprite"><img src="img/creditos/sprite_karlos.png"
+                                    alt="Sprite de Karlos Eduardo">
                             </div>
                             <div class="card-info">
                                 <div class="card-topo">
-                                    <img class="img-card" src="img/karlos.png" alt="Foto de Karlos Eduardo">
+                                    <img class="img-card" src="img/creditos/karlos.png" alt="Foto de Karlos Eduardo">
                                     <div>
                                         <h3>Karlos Eduardo</h3>
                                         <p class="card-funcao" data-i18n="funcao_criador1">Programador</p>
@@ -150,11 +348,12 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-sprite"><img src="img/sprites/kauan.png" alt="Sprite de Kauan Saraiva">
+                            <div class="card-sprite"><img src="img/creditos/sprite_kauan.png"
+                                    alt="Sprite de Kauan Saraiva">
                             </div>
                             <div class="card-info">
                                 <div class="card-topo">
-                                    <img class="img-card" alt="Foto de Kauan Saraiva" src="img/kauan.png">
+                                    <img class="img-card" alt="Foto de Kauan Saraiva" src="img/creditos/kauan.png">
                                     <div>
                                         <h3>Kauan Saraiva</h3>
                                         <p class="card-funcao" data-i18n="funcao_criador2">Programador</p>
@@ -165,11 +364,12 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-sprite"><img src="img/sprites/lucas.png" alt="Sprite de Lucas Franco">
+                            <div class="card-sprite"><img src="img/creditos/sprite_lucas.png"
+                                    alt="Sprite de Lucas Franco">
                             </div>
                             <div class="card-info">
                                 <div class="card-topo">
-                                    <img class="img-card" alt="Foto de Lucas Franco" src="img/lucas.png">
+                                    <img class="img-card" alt="Foto de Lucas Franco" src="img/creditos/lucas.png">
                                     <div>
                                         <h3>Lucas Franco</h3>
                                         <p class="card-funcao" data-i18n="funcao_criador3">Cenários e Sprites</p>
@@ -180,11 +380,11 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-sprite"><img src="img/sprites/rafael.png"
+                            <div class="card-sprite"><img src="img/creditos/sprite_rafael.png"
                                     alt="Sprite de Rafael Cavalcanti"></div>
                             <div class="card-info">
                                 <div class="card-topo">
-                                    <img class="img-card" alt="Foto de Rafael Cavalcanti" src="img/rafael.png">
+                                    <img class="img-card" alt="Foto de Rafael Cavalcanti" src="img/creditos/rafael.png">
                                     <div>
                                         <h3>Rafael Cavalcanti</h3>
                                         <p class="card-funcao" data-i18n="funcao_criador4">Programador Web e Músicas</p>
@@ -195,10 +395,11 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-sprite"><img src="img/sprites/vitor.png" alt="Sprite de Vitor Yuji"></div>
+                            <div class="card-sprite"><img src="img/creditos/sprite_vitor.png"
+                                    alt="Sprite de Vitor Yuji"></div>
                             <div class="card-info">
                                 <div class="card-topo">
-                                    <img class="img-card" alt="Foto de Vitor Yuji" src="img/vitor.png">
+                                    <img class="img-card" alt="Foto de Vitor Yuji" src="img/creditos/vitor.png">
                                     <div>
                                         <h3>Vitor Yuji</h3>
                                         <p class="card-funcao" data-i18n="funcao_criador5">Cenários e Cutscenes</p>
@@ -214,15 +415,18 @@
             </div>
         </section>
 
+        <!-- creditos finais -->
         <section id="creditos">
             <h2 data-i18n="titulo_creditos">Créditos</h2>
             <p data-i18n="desc_creditos">Obrigado por jogar ByteRise!</p>
+
             <div class="botoes-creditos">
-                <a class="btn-download" href="downloads/ByteRise.zip" download data-i18n="btn_download">Baixar o
-                    jogo</a>
+                <button type="button" class="btn-download" id="btn-download" aria-haspopup="dialog"
+                    data-i18n="btn_download">Baixar o jogo</button>
                 <button type="button" class="btn-doc" id="btn-docs" aria-haspopup="dialog"
                     data-i18n="nav_documentacao">Documentação</button>
             </div>
+
         </section>
 
     </main>
@@ -237,7 +441,11 @@
     <div id="lightbox" class="lightbox">
         <button class="lightbox-fechar" aria-label="Fechar">&times;</button>
         <div class="lightbox-conteudo">
-            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-img-box">
+                <button id="lightbox-prev" class="lightbox-nav" aria-label="Versão anterior">&#10094;</button>
+                <img id="lightbox-img" src="" alt="">
+                <button id="lightbox-next" class="lightbox-nav" aria-label="Próxima versão">&#10095;</button>
+            </div>
             <div class="lightbox-info">
                 <h3 id="lightbox-titulo"></h3>
                 <p id="lightbox-texto"></p>
@@ -252,7 +460,7 @@
             <p class="docs-sub" data-i18n="docs_escolha">Escolha um arquivo para abrir:</p>
             <ul class="docs-lista">
                 <li>
-                    <a href="docs/Informacoes_sobre_o_ByteRise.pdf" target="_blank" rel="noopener">
+                    <a href="docs/byterise.pdf" target="_blank" rel="noopener">
                         <span class="docs-nome" data-i18n="doc1_nome">Informações sobre o ByteRise</span>
                         <span class="docs-desc" data-i18n="doc1_desc">Documento com detalhes sobre o desenvolvimento do
                             jogo.</span>
@@ -265,6 +473,52 @@
                     </a>
                 </li>
             </ul>
+        </div>
+    </div>
+
+
+    <!-- painel de download -->
+    <div id="download-modal" class="docs-modal" role="dialog" aria-modal="true" aria-labelledby="download-titulo">
+        <div class="docs-painel download-painel">
+            <button class="docs-fechar" aria-label="Fechar">&times;</button>
+            <h3 id="download-titulo" data-i18n="btn_download">Baixar o jogo</h3>
+
+            <div class="download-conteudo">
+                <div class="download-qr">
+                    <img src="img/qrcode.jpeg" alt="QR code do ByteRise">
+                    <p data-i18n="qr_texto">Escaneie o QR code com o celular</p>
+                </div>
+
+                <div class="download-opcoes">
+                    <p class="docs-sub" data-i18n="download_escolha">Ou baixe o arquivo:</p>
+                    <ul class="docs-lista">
+                        <li>
+                            <a href="docs/ByteRise.apk
+                            " download="ByteRise.apk">
+                                <span class="docs-nome" data-i18n="btn_download_android">Baixar para Android
+                                    (.apk)</span>
+                                <span class="docs-desc" data-i18n="download_android_desc">Para instalar direto no
+                                    celular Android.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="docs/ByteRise.zip" download="ByteRise.zip">
+                                <span class="docs-nome" data-i18n="btn_download_pc">Baixar para PC (.zip)</span>
+                                <span class="docs-desc" data-i18n="download_pc_desc">Para jogar no computador
+                                    (descompacte o arquivo).</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://gx.games/games/iql6v6/byterise-com/" target="_blank" rel="noopener">
+                                <span class="docs-nome" data-i18n="btn_jogar_web">Jogar no navegador (iPhone e
+                                    outros)</span>
+                                <span class="docs-desc" data-i18n="download_web_desc">Sem instalar nada, pelo link do
+                                    GX.games.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
